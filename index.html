@@ -7,42 +7,48 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; text-align: center; }
         .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        input { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        h1 { color: #28a745; margin-bottom: 5px; }
+        .welcome-title { font-size: 20px; font-weight: bold; color: #333; margin-top: 5px; }
+        input { width: 85%; padding: 12px; margin: 15px 0; border: 2px solid #28a745; border-radius: 8px; font-size: 16px; }
+        button { background-color: #28a745; color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; width: 85%; }
         button:hover { background-color: #218838; }
-        .balance-box { background: #e2f0d9; padding: 15px; border-radius: 5px; margin: 20px 0; font-size: 18px; font-weight: bold; color: #385723; display: none; }
-        .task-section { margin-top: 30px; display: none; }
-        .footer { margin-top: 30px; font-size: 12px; color: #666; }
-        .footer a { color: #007bff; text-decoration: none; margin: 0 5px; }
+        .balance-box { background: #e2f0d9; padding: 15px; border-radius: 8px; margin: 20px auto; font-size: 20px; font-weight: bold; color: #385723; width: 85%; display: none; }
+        .task-section { margin-top: 30px; display: none; background: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; }
+        .info-box { background: #e8f4fd; padding: 15px; border-radius: 8px; text-align: left; margin: 20px auto; width: 85%; font-size: 14px; color: #1d2129; border-left: 5px solid #007bff; }
+        .footer { margin-top: 40px; font-size: 13px; color: #666; border-top: 1px solid #ddd; padding-top: 15px; }
+        .footer a { color: #007bff; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>TapşırıqAZ</h1>
-    <p>Tapşırıqları yerinə yetirərək balansınızı artırın.</p>
+    <div class="welcome-title">🚀 TapşırıqAZ Pul Qazanma Saytına Xoş Gəlmisiniz!</div>
+    <p style="color: #666;">Saytımız yeni açıldı və tapşırıqlar tam işlək vəziyyətdədir! Reklamları izləyin, oyunları oynayın və dərhal qazanmağa başlayın!</p>
 
     <!-- QEYDİYYAT / DAXİL OLMA BÖLMƏSİ -->
     <div id="auth-section">
-        <h3>Başlamaq üçün İstifadəçi Adınızı Daxil Edin:</h3>
-        <input type="text" id="username-input" placeholder="Məsələn: ali777">
+        <p style="font-weight: bold; color: #555;">Başlamaq üçün özünüzə bir istifadəçi adı təyin edin:</p>
+        <input type="text" id="username-input" placeholder="İstifadəçi adınız (məsələn: ziya555)">
         <br>
-        <button onclick="handleLogin()">Giriş Et / Qeydiyyat Ol</button>
-        <p id="auth-error" style="color: red;"></p>
+        <button onclick="handleLogin()">Hesab Yarat / Giriş Et 🔓</button>
+        <p id="auth-error" style="color: red; font-weight: bold;"></p>
     </div>
 
-    <!-- İSTİFADƏÇİ PANELİ (GİRİŞDƏN SONRA AÇILIR) -->
-    <div id="user-panel">
-        <h3 id="welcome-message">Xoş gəldiniz!</h3>
+    <!-- İSTİFADƏÇİ PANELİ -->
+    <div id="user-panel" style="display: none;">
+        <h3 id="welcome-message" style="color: #007bff;">Xoş gəldiniz!</h3>
         <div class="balance-box" id="balance-box">Balansınız: <span id="user-balance">0.00</span> AZN</div>
-        <button onclick="checkBalance()" style="background-color: #007bff;">Balansı Yenilə</button>
+        <button onclick="checkBalance()" style="background-color: #007bff; margin-bottom: 10px;">Balansı Yenilə 🔄</button>
         
         <div class="task-section" id="task-section">
-            <h4>Mövcud Tapşırıqlar:</h4>
-            <p>Aşağıdakı düyməyə klikləyərək AdGem divarındakı reklam və tapşırıqları tamamlayın. Qazanclar avtomatik balansınıza oturacaq.</p>
-            <!-- AdGem Linki (user_id parametri dinamik olaraq istifadəçi adını ötürür) -->
-            <button onclick="openAdGem()" style="background-color: #ffc107; color: black; font-weight: bold;">AdGəm Tapşırıqlarına Başla 🚀</button>
+            <h4 style="margin-top: 0; color: #856404;">🔥 Canlı Tapşırıqlar Aktivdir!</h4>
+            <p>Aşağıdakı sarı düyməyə klikləyərək AdGem divarındakı rəsmi tapşırıqları yerinə yetirin. Qazancınız avtomatik olaraq yuxarıdakı balansınıza əlavə olunacaq!</p>
+            <button onclick="openAdGem()" style="background-color: #ffc107; color: black; font-weight: bold; width: 100%;">AdGəm Tapşırıqlarına Başla 🎯</button>
+        </div>
+        
+        <div class="info-box">
+            <strong>ℹ️ Pul Çıxarışı Haqqında:</strong> Tapşırıqlardan qazandığınız real gəlirlər tərəfdaşımız (AdGem) tərəfindən təsdiqləndikdən sonra balansınıza yazılır. Pul çıxarış sistemi qaydalara uyğun gəlir əldə edən hər bir dürüst istifadəçi üçün aktiv ediləcəkdir. Saxtakarlıq edən hesablar bloklanır.
         </div>
     </div>
 
@@ -50,33 +56,27 @@
         <a href="privacy.html">Məxfilik Siyasəti</a> | 
         <a href="terms.html">İstifadə Şərtləri</a>
         <br><br>
-        Dəstək: contact@example.com
+        <strong>Dəstək E-poçtu:</strong> contact@example.com
     </div>
 </div>
 
 <script>
-    // Bizim internetdəki canlı Render serverimiz
-    const BACKEND_URL = "https://tapsiriqaz.onrender.com";
+    const BACKEND_URL = "https://onrender.com";
     let currentUsername = localStorage.getItem("tapsiriqaz_username") || "";
 
-    // Səhifə açılanda istifadəçinin daxil olub-olmadığını yoxla
     window.onload = function() {
         if (currentUsername) {
             showUserPanel();
-        } else {
-            document.getElementById("user-panel").style.display = "none";
         }
     };
 
-    // GİRİŞ VƏ QEYDİYYAT İŞLƏMİ
     function handleLogin() {
         const username = document.getElementById("username-input").value.trim();
         if (!username) {
-            document.getElementById("auth-error").innerText = "Zəhmət olmasa bir ad yazın.";
+            document.getElementById("auth-error").innerText = "Zəhmət olmasa istifadəçi adı daxil edin.";
             return;
         }
 
-        // Backend-ə qeydiyyat sorğusu göndəririk
         fetch(`${BACKEND_URL}/api/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -87,52 +87,42 @@
             if (data.error && data.error !== "Bu istifadəçi adı artıq mövcuddur") {
                 document.getElementById("auth-error").innerText = data.error;
             } else {
-                // İstifadəçi artıq mövcuddursa və ya yeni qeydiyyatdırsa daxil et
                 localStorage.setItem("tapsiriqaz_username", username);
                 currentUsername = username;
                 showUserPanel();
             }
         })
         .catch(err => {
-            console.error(err);
-            // Şəbəkə xətası halında da yerli girişə icazə veririk (əvvəl qeydiyyat olubsa)
             localStorage.setItem("tapsiriqaz_username", username);
             currentUsername = username;
             showUserPanel();
         });
     }
 
-    // İSTİFADƏÇİ PANELİNİ GÖSTƏRMƏK
     function showUserPanel() {
         document.getElementById("auth-section").style.display = "none";
         document.getElementById("user-panel").style.display = "block";
-        document.getElementById("welcome-message").innerText = `Xoş gəldiniz, ${currentUsername}!`;
+        document.getElementById("welcome-message").innerText = `👋 Xoş gəldiniz, ${currentUsername}!`;
         document.getElementById("balance-box").style.display = "block";
         document.getElementById("task-section").style.display = "block";
         checkBalance();
     }
 
-    // BALANSI BACKEND-DƏN YOXlamaq
     function checkBalance() {
         if (!currentUsername) return;
         fetch(`${BACKEND_URL}/api/balance/${currentUsername}`)
         .then(res => res.json())
         .then(data => {
             if (data.balance !== undefined) {
-                // Verilənlər bazasından gələn balansı ekrana yazırıq
                 document.getElementById("user-balance").innerText = parseFloat(data.balance).toFixed(2);
             }
         })
-        .catch(err => console.error("Balans yenilənmədi:", err));
+        .catch(err => console.error("Balans xətası:", err));
     }
 
-    // ADGEM DIVARINI AÇMAQ
     function openAdGem() {
-        // BURAYA ADGEM PUBLISHER PANELINDƏN ALDIĞINIZ RƏSMİ URL-İ YAPIŞDIRACAQSINIZ
-        // Sonda olan player_id və ya user_id hissəsinə mütləq currentUsername dəyişənini bağlayırıq
-        const adgemAppId = "1234"; // AdGem sizə verdiyi ID ilə əvəzləyin
+        const adgemAppId = "1234"; // AdGem panelindəki tətbiq ID-niz
         const adgemUrl = `https://adgem.com{adgemAppId}&player_id=${currentUsername}`;
-        
         window.open(adgemUrl, '_blank');
     }
 </script>
